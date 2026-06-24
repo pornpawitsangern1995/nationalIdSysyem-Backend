@@ -1,0 +1,34 @@
+CREATE DATABASE CitizenDB;
+GO
+ 
+USE CitizenDB;
+GO
+ 
+-- ตาราง Citizens 
+CREATE TABLE Citizens (
+    Id          INT            PRIMARY KEY IDENTITY(1,1),
+    NationalId  NVARCHAR(13)   NOT NULL UNIQUE,
+    FirstName   NVARCHAR(100)  NOT NULL,
+    LastName    NVARCHAR(100)  NOT NULL,
+    BirthDate   DATE           NOT NULL,
+    Address     NVARCHAR(500)  NOT NULL,
+    Province    NVARCHAR(100)  NULL,
+    District    NVARCHAR(100)  NULL,
+    SubDistrict NVARCHAR(100)  NULL,
+    PostalCode  NVARCHAR(10)   NULL,
+    PhoneNumber NVARCHAR(20)   NULL,
+    CreatedAt   DATETIME       NOT NULL DEFAULT GETDATE(),
+    UpdatedAt   DATETIME       NOT NULL DEFAULT GETDATE(),
+    CreatedBy   NVARCHAR(100)  NULL,
+    IsActive    BIT            NOT NULL DEFAULT 1
+);
+GO
+
+-- ข้อมูลตัวอย่าง 
+INSERT INTO Citizens
+    (NationalId, FirstName, LastName, BirthDate, Address, Province, District, SubDistrict, PostalCode, PhoneNumber, CreatedBy)
+VALUES
+    ('1234567890123', N'สมชาย',  N'ใจดี',    '1990-05-15', N'123 ถ.สุขุมวิท',        N'กรุงเทพมหานคร', N'คลองเตย',         N'คลองเตย',   '10110', '081-234-5678', N'admin'),
+    ('9876543210987', N'สมหญิง', N'รักดี',   '1985-11-22', N'456 ถ.พระราม 4',        N'กรุงเทพมหานคร', N'สาทร',            N'ยานนาวา',   '10120', '082-345-6789', N'admin'),
+    ('1111111111119', N'วิชัย',  N'สุขสันต์','2000-01-30', N'789 ถ.เชียงใหม่-ลำพูน', N'เชียงใหม่',     N'เมืองเชียงใหม่', N'ช้างเผือก', '50300', '083-456-7890', N'admin');
+GO
