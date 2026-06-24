@@ -1,0 +1,7 @@
+ไปที่ไฟล์ appsettings.json 
+  แล้วแก้ไข 
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=LAPTOP-0N19C26K\\SQLEXPRESS;Database=CitizenDB;Trusted_Connection=True;TrustServerCertificate=True;"
+  },
+
+  แก้ตรง LAPTOP-0N19C26K\\SQLEXPRESS ให้เป็น Server ที่คุณใช้
