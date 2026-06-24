@@ -1,6 +1,0 @@
-@CitizenAPI_HostAddress = http://localhost:5239
-
-GET {{CitizenAPI_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
